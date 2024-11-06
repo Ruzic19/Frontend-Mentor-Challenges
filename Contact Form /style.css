@@ -1,0 +1,230 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Karla', sans-serif;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(226, 249, 236);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: auto; /* za svaki slucaj ako content misli overflowat parent container*/
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 4px;
+    display: block;
+}
+
+.input-error {
+    border: 1px solid red !important; 
+}
+
+.wrapper {
+    background-color: #fff;
+    border-radius: 12px;
+    width: 90%; 
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; /* max visina nakon koje onda daje scrolling*/
+    overflow-y: auto; /* dopusta mi da se scrolla po y-osi odnosno vertikalno ako potrebno za manje ekrane */
+}
+
+.wrapper form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch; /* Stretch da mi zauzme cijeli container*/
+}
+
+.name-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.name-item {
+    width: 48%;
+}
+
+.name-item input {
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.name-item input:hover {
+    border: 1px solid rgb(11, 215, 11);
+}
+
+.email-container {
+    width: 100%;
+}
+
+.email-container input {
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.email-container input:hover {
+    border: 1px solid rgb(11, 215, 11);
+}
+
+.query-type-container {
+    width: 100%;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.radio-item {
+    position: relative;
+    height: 55px;
+    width: 48%;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 10px;
+    flex-basis: 1;
+}
+
+.radio-item label::before {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.radio-item label {
+    flex-grow: 1;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.radio-item input {
+    opacity: 0; /* sakriti originalnu tipku od radio itema */
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.radio-item input:checked + label::before {
+    border: 1px solid lightgray;
+    background-color: rgb(11, 215, 11);
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.message-container textarea {
+    border-radius: 10px;
+    height: 100px;
+    padding: 10px 15px;
+    font-size: 18px;
+}
+
+.message-container > textarea:hover {
+    border: 1px solid rgb(11, 215, 11);
+}
+
+.checkbox-container {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: rgb(40, 135, 107);
+    border: none;
+    color: #fff;
+}
+
+button:hover {
+    background-color: rgb(50, 101, 73);
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        height: auto; 
+        padding: 15px; 
+    }
+
+    .wrapper form {
+        flex-direction: column; 
+        justify-content: flex-start; 
+    }
+
+    .name-container {
+        flex-direction: column; 
+    }
+
+    .name-item {
+        width: 100%; 
+    }
+
+    .message-container textarea {
+        margin-bottom: 15px; 
+    }
+
+    button {
+        margin-top: 20px; 
+        height: 50px; 
+    }
+
+    .radio-group {
+        flex-direction: column; 
+        width: 100%;
+    }
+    
+    .radio-item {
+        width: 100%; 
+        margin-bottom: 10px; 
+    }
+}
